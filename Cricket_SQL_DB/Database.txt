@@ -1,0 +1,125 @@
+Create database Cricket
+use cricket 
+go
+
+CREATE TABLE Country(Country_id int primary key , Country_code varchar(30),Country_name varchar(20), Continent varchar(20));
+
+
+INSERT INTO Country VALUES(1,'+44','England','Europe'),
+(2,'+61','Australia','Australia'),
+(3,'+64','New Zealand','Oceania'),
+(4,'+91','India','Asia'),
+(5,'+94','Sri Lanka','South-Asia');
+
+
+
+CREATE TABLE Player(Player_Id int primary key , Player_Name varchar(30),Player_Age int, Player_countryid int foreign key references country(country_id));
+
+
+select * from [player];
+
+
+INSERT INTO Player VALUES(18,'Virat',29,4),
+(8,'Ravindra',28,4),
+(45,'Rohit',31,4),
+(17,'Rishab',25,4),
+(1,'KL Rahul',28,4),
+(33,'Hardik',26,4),
+(93,'Jasprit',23,4),
+(15,'Bhuvneshwar',24,4),
+(16,'Mayank',26,4),
+(3,'Yuzvendra',27,4),
+(11,'Mohammed',31,4);
+
+
+Insert into player values(31,'David Warner',30,2),
+(5,'Aaron Finch',32,2),
+(32,'Marnus Labuschagne',27,2),
+(49,'Steve Smith',31,2),
+(56,'Mathew Wade',35,2),
+(67,'Cameron Green',24,2),
+(90,'Ashton Agar',28,2),
+(7,'Pat Cummins',28,2),
+(2,'Mitchel Starc',30,2),
+(12,'Josh Hazelwood',29,2),
+(13,'Nathan Lyon',33,2);
+
+
+Insert into player values(34,'Jason Roy',29,1),
+(28,'Jhonny Bairstow',28,1),
+(24,'Joe Root',30,1),
+(55,'Ben Stokes',25,1),
+(35,'David Malan',31,1),
+(98,'Eoin Morgan',32,1),
+(99,'Moeen Ali',33,1),
+(101,'Adil Rasheed',30,1),
+(58,'Chris Wokes',31,1),
+(71,'Stuart Broad',30,1),
+(40,'Jimmy Anderson',32,1);
+
+
+Insert into Player values
+(20,'Jason Roy',29,3),
+(81,'Jhonny Bairstow',28,3),
+(19,'Joe Root',30,3),
+(115,'Ben Stokes',25,3),
+(121,'David Malan',31,3),
+(191,'Eoin Morgan',32,3),
+(116,'Moeen Ali',33,3),
+(102,'Adil Rasheed',30,3),
+(175,'Chris Wokes',31,3),
+(212,'Stuart Broad',30,3),
+(139,'Jimmy Anderson',32,3)
+
+
+
+INSERT INTO Player VALUES(181,'Dimuth',29,5),
+(100,'Angelo ',28,5),
+(149,'Malinga',31,5),
+(917,'Kusal',25,5),
+(819,'Kasun',28,5),
+(739,'Dhananjaya',26,5),
+(499,'Suranga',23,5),
+(451,'Isuru',24,5),
+(376,'Kusal',26,5),
+(333,'Avishka',27,5),
+(611,'Lahiru',31,5);
+
+Create table stadium (Stadium_id int Primary key, Stadium_country int foreign key references country(country_id),stadium_name varchar(30),no_of_matches_allowed int);
+
+
+select * from stadium
+
+
+INSERT INTO stadium values(006,4,'Eden Gardens',5);		
+INSERT INTO stadium values(014,2,'Adelaide Oval',5);			
+INSERT INTO stadium values(022,1,'Edgbaston',6);		
+INSERT INTO stadium values(031,3,'Eden Park',3);		
+INSERT INTO stadium values(039,5,'Sinhalese Sports Club Ground',3);		
+
+drop table matches
+
+create table matches(match_id int primary key ,stadium_id int foreign key references stadium(stadium_id),team1 int foreign key references country(country_id),team2 int foreign key references country(country_id),result int,date_time datetime,Was_Match_Played int);
+
+
+insert into matches values(1,006,1,4,null,'2022-05-23 9:00:00',1);
+insert into matches values(2,014,2,3,null,'2022-05-24 11:00:00',1);
+insert into matches values(3,031,4,5,null,'2022-05-25 11:00:00',1);
+insert into matches values(4,014,3,1,null,'2022-05-26 2:00:00',0);
+insert into matches values(5,014,5,3,null,'2022-05-27 11:00:00',1);
+insert into matches values(7,039,1,2,null,'2022-05-28 11:00:00',0);
+insert into matches values(8,014,2,5,null,'2022-05-29 11:00:00',1);
+insert into matches values(9,039,3,4,null,'2022-05-30 5:00:00',1);
+insert into matches values(10,014,2,3,null,'2022-06-01 11:00:00',1);
+insert into matches values(11,039,5,1,null,'2022-06-02 1:00:00',1);
+	
+
+
+
+
+
+
+
+
+
+
